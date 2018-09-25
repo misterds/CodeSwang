@@ -2,8 +2,7 @@ package com.example.serj.codeswag.Controler
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.ArrayAdapter
-import com.example.serj.codeswag.Model.Category
+import com.example.serj.codeswag.Adapters.CategoryAdapter
 import com.example.serj.codeswag.R
 import com.example.serj.codeswag.Services.DataService
 import kotlinx.android.synthetic.main.activity_main.*
@@ -13,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
 
 //Creating adapter
-    lateinit var adapter :ArrayAdapter<Category>
+    lateinit var adapter :CategoryAdapter
 //--------------------------------------------------------
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,10 +20,7 @@ class MainActivity : AppCompatActivity() {
 //--------------------------------------------------------
 //initialise  adapter
 
-     adapter = ArrayAdapter(this,
-             android.R.layout.simple_list_item_1,
-             DataService.category)
-
+     adapter = CategoryAdapter(this,DataService.category)
 //setup the list View
     categoryListView.adapter = adapter
 
