@@ -12,10 +12,7 @@ import com.example.serj.codeswag.R
 
 
 //Creating the  basic adapder  from the  android  studio , in this  adapter  wil  passe the data
-class CategoryAdapter(context: Context, categories: List<Category>) : BaseAdapter() {
-
-    val context = context
-    val categories = categories
+class CategoryAdapter(val context: Context, val categories: List<Category>) : BaseAdapter() {
 
     //    i function that will shoe  how it  will apear  the  layout
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
