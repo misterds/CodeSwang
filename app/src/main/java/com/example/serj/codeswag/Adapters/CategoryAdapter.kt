@@ -17,25 +17,36 @@ class CategoryAdapter(context: Context, categories: List<Category>) : BaseAdapte
     val context = context
     val categories = categories
 
-
-//    i function that will shoe  how it  will apear  the  layout
+    //    i function that will shoe  how it  will apear  the  layout
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
+        val categoryView: View
+        val holder: ViewHolder
+//if  the  is not  exist  the  holder  is  creating  this holder   and  after  taht is  inflating
+        if (convertView == null) {
+            categoryView = LayoutInflater.from(context).inflate(R.layout.category_list_item, null)
+            holder = ViewHolder()
 
-        val categoryView = LayoutInflater.from(context).inflate(R.layout.category_list_item, null)
 //    Creating  the UI elements
-        val categoryImage: ImageView = categoryView.findViewById(R.id.categoryImage)
-        val categoryName: TextView = categoryView.findViewById(R.id.categoryName)
+            holder.categoryImage = categoryView.findViewById(R.id.categoryImage)
+            holder.categoryImage = categoryView.findViewById(R.id.categoryName)
+            categoryView.tag = holder
+
+        } else {
+//else if  exist  we  will be reuse that  was  created befor
+            holder = convertView.tag as ViewHolder
+            categoryView = convertView
+        }
 
         val category = categories[position]
         val resourceId = context.resources.getIdentifier(category.image, "drawable", context.packageName)
-        categoryImage.setImageResource(resourceId)
 
-        categoryName.text = category.title
+        holder.categoryImage?.setImageResource(resourceId)
+        holder.categoryName?.text = category.title
         return categoryView
 
     }
 
-// returnig  the posistion where  will  bee the item
+    // returnig  the posistion where  will  bee the item
     override fun getItem(position: Int): Any {
         return categories[position]
     }
@@ -44,8 +55,18 @@ class CategoryAdapter(context: Context, categories: List<Category>) : BaseAdapte
         return 0
     }
 
-//return ho many category  will be in array
+    //return ho many category  will be in array
     override fun getCount(): Int {
         return categories.count()
     }
+
+/* Creating  a ViewHolder  that  will  halp  to inflate
+ and to reuse  the  items  when we wil
+    scroll  down   this  class  wil hold the category image  and  category Name  */
+
+    private class ViewHolder {
+        var categoryImage: ImageView? = null
+        var categoryName: TextView? = null
+    }
+
 }
