@@ -22,10 +22,24 @@ object DataService {
             Product("Devlopes Graphic Benies", "$18", "hat1"),
             Product("Devlopes Hat Black", "$20", "hat2"),
             Product("Devlopes Hat White", "$22", "hat3"),
+            Product("Devlopes Hat Snapback", "$32", "hat4"), Product("Devlopes Graphic Benies", "$18", "hat1"),
+            Product("Devlopes Hat Black", "$20", "hat2"),
+            Product("Devlopes Hat White", "$22", "hat3"),
+            Product("Devlopes Hat Snapback", "$32", "hat4"),
+            Product("Devlopes Graphic Benies", "$18", "hat1"),
+            Product("Devlopes Hat Black", "$20", "hat2"),
+            Product("Devlopes Hat White", "$22", "hat3"),
             Product("Devlopes Hat Snapback", "$32", "hat4")
     )
     // creating  the hoodies
     val hoodies = listOf(
+            Product("Devlopes Hoodied Grey", "$18", "hoodie1"),
+            Product("Devlopes  Hoodied  Red", "$20", "hoodie2"),
+            Product("Devlopes Hoodied Grey ", "$22", "hoodie3"),
+            Product("Devlopes Blck Hoodie ", "$32", "hoodie4"),Product("Devlopes Hoodied Grey", "$18", "hoodie1"),
+            Product("Devlopes  Hoodied  Red", "$20", "hoodie2"),
+            Product("Devlopes Hoodied Grey ", "$22", "hoodie3"),
+            Product("Devlopes Blck Hoodie ", "$32", "hoodie4"),
             Product("Devlopes Hoodied Grey", "$18", "hoodie1"),
             Product("Devlopes  Hoodied  Red", "$20", "hoodie2"),
             Product("Devlopes Hoodied Grey ", "$22", "hoodie3"),
@@ -36,7 +50,24 @@ object DataService {
             Product("Devlopes Shirt Black", "$18", "shirt1"),
             Product("Devlopes   Bandge Light Geay", "$20", "shirt2"),
             Product("Devlopes Logo Shirt Red ", "$22", "shirt3"),
+            Product("Devlopes Hustle ", "$32", "shirt4"),
+            Product("Devlopes Shirt Black", "$18", "shirt1"),
+            Product("Devlopes   Bandge Light Geay", "$20", "shirt2"),
+            Product("Devlopes Logo Shirt Red ", "$22", "shirt3"),
+            Product("Devlopes Hustle ", "$32", "shirt4"),
+            Product("Devlopes Shirt Black", "$18", "shirt1"),
+            Product("Devlopes   Bandge Light Geay", "$20", "shirt2"),
+            Product("Devlopes Logo Shirt Red ", "$22", "shirt3"),
             Product("Devlopes Hustle ", "$32", "shirt4")
     )
 
+    val digitalsgoods  = listOf<Product>()
+ fun getProducts(category: String): List<Product>{
+     return when(category) {
+         "SHIRTS"-> shirts
+         "HATS" -> hats
+         "HOODIES" -> hoodies
+         else -> digitalsgoods
+     }
+ }
 }
